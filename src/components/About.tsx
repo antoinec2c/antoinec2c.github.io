@@ -2,11 +2,12 @@ import type { FC } from "react";
 import { personalInfo } from "../data/portfolioData";
 import { 
   GraduationCap, 
-  Layers, 
-  Radio, 
+  Network, 
   Check, 
-  Terminal
+  Terminal,
+  Users
 } from "lucide-react";
+
 
 export const About: FC = () => {
   return (
@@ -20,10 +21,10 @@ export const About: FC = () => {
             <span>À propos & Formation</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Au cœur des Télécommunications et des Réseaux du futur
+            Ingénierie Réseaux, Systèmes Unix & Management Agile
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Une formation d'excellence à l'ENSEEIHT alliant rigueur scientifique, maîtrise des protocoles et ingénierie logicielle.
+            Une formation d'excellence à l'ENSEEIHT alliant rigueur scientifique, maîtrise des protocoles et pilotage de projets.
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export const About: FC = () => {
               </p>
 
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                Après deux années intensives en <strong>Classes Préparatoires aux Grandes Écoles (CPGE)</strong> où j'ai développé une solide rigueur mathématique et une forte capacité d'abstraction, j'ai choisi d'intégrer l'<strong>ENSEEIHT</strong> pour me consacrer aux technologies qui connectent le monde.
+                Après trois années intenses en <strong>Classes Préparatoires aux Grandes Écoles (CPGE PCSI / PSI*)</strong> aux lycées Montesquieu (Le Mans) et Descartes (Tours), j'ai développé une grande rigueur de travail et une forte capacité de modélisation mathématique et physique.
               </p>
 
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -51,8 +52,8 @@ export const About: FC = () => {
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Double compétence</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">Traitement du signal / RF & Réseaux IP</span>
+                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Réseaux & Télécoms</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">TCP/IP, Quagga, RIP/OSPF, Wireshark</span>
                   </div>
                 </div>
 
@@ -61,8 +62,8 @@ export const About: FC = () => {
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Esprit expérimental</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">Pratique intensive en TP & bancs d'essais</span>
+                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Systèmes Unix & C</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">Mini-shell POSIX, pipes, fork, Valgrind</span>
                   </div>
                 </div>
 
@@ -71,8 +72,8 @@ export const About: FC = () => {
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Programmation système</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">C bas-niveau, Sockets, POSIX & Python</span>
+                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Option Managership</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">Méthodes agiles (Scrum), leadership</span>
                   </div>
                 </div>
 
@@ -81,26 +82,31 @@ export const About: FC = () => {
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Méthode d'ingénieur CTI</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">Gestion de projet agile & réflexivité</span>
+                    <span className="font-semibold text-sm text-slate-900 dark:text-white block">Leadership Opérationnel</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">Réserviste 1er RCP & Chef de troupe</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* School identity card */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-rose-900/10 via-rose-800/5 to-transparent border border-rose-200/60 dark:border-rose-900/40 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-rose-600 text-white font-mono font-black flex items-center justify-center text-lg shadow-sm">
-                N7
+            {/* School & Option card */}
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-rose-900/10 via-rose-800/5 to-transparent border border-rose-200/60 dark:border-rose-900/40 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-rose-600 text-white font-mono font-black flex items-center justify-center text-lg shadow-sm">
+                  N7
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-white">
+                    Toulouse INP — ENSEEIHT
+                  </h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                    Sciences du Numérique • Spécialisation Réseaux & Télécoms • Option Managership
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">
-                  ENSEEIHT — Toulouse INP
-                </h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                  Filière Sciences du Numérique | Informatique & Télécommunications (SN-IT)
-                </p>
-              </div>
+              <span className="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-rose-600 dark:text-rose-400 border border-slate-200 dark:border-slate-700 shadow-sm">
+                2025 – 2028
+              </span>
             </div>
 
           </div>
@@ -110,37 +116,37 @@ export const About: FC = () => {
             
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-rose-300 dark:hover:border-rose-800 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
-                <Radio className="w-5 h-5" />
+                <Network className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white mb-2">
-                1. Télécoms, Signal & Radio Logicielle
+                1. Réseaux & Systèmes Unix
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                De la modulation en bande de base aux canaux sélectifs en fréquence : modélisation de modulations numériques (QPSK, QAM), filtrage adapté RRC, traitement numérique du signal et expérimentations SDR (GNU Radio, RTL-SDR).
+                Plans d'adressage IP hiérarchiques (VLSM/CIDR), routage dynamique (RIP, OSPF) sous Quagga, passerelles NAT, serveurs DNS/Web et analyse approfondie de trames sous Wireshark.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-rose-300 dark:hover:border-rose-800 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Layers className="w-5 h-5" />
+                <Terminal className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white mb-2">
-                2. Architectures Réseaux & Protocoles IP
+                2. Programmation Système & Algorithmique
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Conception et sécurisation d'infrastructures : routage dynamique OSPF, segmentation VLAN, redondance EtherChannel/STP, analyse fine de trames avec Wireshark et politiques de filtrage (ACLs, NAT).
+                Développement système bas-niveau en C (mini-shell Unix POSIX, processus fork/exec, tubes de communication, zéro fuite mémoire Valgrind), programmation objet en Java/Python et rigueur algorithmique en Ada.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-rose-300 dark:hover:border-rose-800 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
-                <Terminal className="w-5 h-5" />
+                <Users className="w-5 h-5" />
               </div>
               <h3 className="font-bold text-base text-slate-900 dark:text-white mb-2">
-                3. Développement Système & IoT
+                3. Option Managership & Modélisation
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Programmation bas-niveau en C (sockets POSIX, multithreading, synchronisation thread-safe), scripts réseau en Python (Scapy), et transmission de données de capteurs sur réseaux basse consommation LoRaWAN.
+                Management de projets agiles (méthodes Scrum), leadership, gestion des risques et logistique d'équipe, complétés par une démarche scientifique de modélisation (TIPE propulsion navale CFD SolidWorks).
               </p>
             </div>
 

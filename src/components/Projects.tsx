@@ -15,10 +15,9 @@ export const Projects: FC = () => {
 
   const categories = [
     { id: "all", label: "Tous les projets" },
-    { id: "telecom", label: "Télécoms & Signal" },
-    { id: "reseau", label: "Réseaux & Protocoles" },
-    { id: "dev", label: "Développement Système" },
-    { id: "iot", label: "IoT & Embarqué" },
+    { id: "reseau", label: "Infrastructures Réseaux (Quagga)" },
+    { id: "systeme", label: "Systèmes Unix & C" },
+    { id: "tipe", label: "Recherche & TIPE (CFD)" },
   ];
 
   const filteredProjects = activeCategory === "all"
@@ -27,18 +26,19 @@ export const Projects: FC = () => {
 
   const getCategoryBadgeClass = (category: string) => {
     switch (category) {
-      case "telecom":
-        return "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900";
       case "reseau":
         return "bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900";
-      case "dev":
+      case "systeme":
         return "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900";
-      case "iot":
-        return "bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-900";
+      case "tipe":
+        return "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900";
+      case "telecom":
+        return "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900";
       default:
         return "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
     }
   };
+
 
   return (
     <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">

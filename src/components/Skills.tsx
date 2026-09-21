@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type { FC } from "react";
 import { skillCategories } from "../data/portfolioData";
 import { 
   Radio, 
   Network, 
-  Code2, 
+  Terminal, 
   Users, 
-  CheckCircle2, 
   Layers,
-  Sparkles
+  Sparkles,
+  CheckCircle2
 } from "lucide-react";
 
-export const Skills: React.FC = () => {
+export const Skills: FC = () => {
   const [activeTab, setActiveTab] = useState<string>(skillCategories[0].id);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case "Radio":
-        return <Radio className="w-5 h-5 text-rose-500" />;
       case "Network":
         return <Network className="w-5 h-5 text-sky-500" />;
-      case "Code2":
-        return <Code2 className="w-5 h-5 text-emerald-500" />;
+      case "Terminal":
+        return <Terminal className="w-5 h-5 text-emerald-500" />;
       case "Users":
         return <Users className="w-5 h-5 text-purple-500" />;
+      case "Radio":
+        return <Radio className="w-5 h-5 text-rose-500" />;
       default:
         return <Layers className="w-5 h-5 text-rose-500" />;
     }
@@ -57,7 +58,7 @@ export const Skills: React.FC = () => {
             Compétences Techniques & Méthodologiques
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Un spectre étendu de compétences alliant couches physiques télécoms, protocoles d'infrastructure et ingénierie logicielle.
+            Un profil d'ingénieur équilibré alliant protocoles réseaux, programmation système bas-niveau et management agile de projets.
           </p>
         </div>
 
@@ -116,15 +117,15 @@ export const Skills: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom Fast Tech Tags Bar */}
+        {/* Bottom Fast Tech Tags Bar from New CV */}
         <div className="mt-14 p-6 rounded-2xl bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-200">
+          <div className="flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-200 shrink-0">
             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-            <span>Environnement technique quotidien :</span>
+            <span>Technologies & Méthodes maîtrisées :</span>
           </div>
 
           <div className="flex flex-wrap gap-2 justify-center">
-            {["C / C++", "Python 3", "Linux / Bash", "Wireshark", "OSPF / BGP", "MATLAB", "GNU Radio", "SDR", "LoRaWAN", "Git / GitHub", "Docker", "GNS3"].map((tag) => (
+            {["TCP/IP", "Quagga (RIP/OSPF)", "Linux Unix POSIX", "Wireshark", "Langage C", "Python", "Java", "Ada", "SQL", "Matlab", "Docker", "Git", "Scrum Agilité", "SolidWorks CFD"].map((tag) => (
               <span 
                 key={tag}
                 className="px-2.5 py-1 rounded-md text-xs font-mono font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
