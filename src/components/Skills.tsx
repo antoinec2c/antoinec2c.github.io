@@ -131,7 +131,10 @@ export const Skills: FC = () => {
           </div>
 
           <div className="flex flex-wrap gap-1.5 justify-center md:justify-end">
-            {["TCP/IP", "Quagga (RIP/OSPF)", "Linux Unix POSIX", "Wireshark", "Langage C", "Python", "Java", "Ada", "SQL", "Matlab", "Docker", "Git", "Scrum Agilité", "SolidWorks CFD"].map((tag) => (
+            {(t("skillsTechBarTitle").includes("Arsenal") || t("skillsTechBarTitle").includes("Stack")
+              ? ["TCP/IP", "Quagga (RIP/OSPF)", "Linux / POSIX", "Wireshark", "C Language", "Python", "Java", "Ada", "SQL", "Matlab", "Docker", "Git", "Agile Scrum", "SolidWorks CFD"]
+              : ["TCP/IP", "Quagga (RIP/OSPF)", "Linux Unix POSIX", "Wireshark", "Langage C", "Python", "Java", "Ada", "SQL", "Matlab", "Docker", "Git", "Scrum Agilité", "SolidWorks CFD"]
+            ).map((tag) => (
               <span 
                 key={tag}
                 className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"

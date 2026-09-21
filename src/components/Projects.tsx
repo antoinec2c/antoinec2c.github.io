@@ -68,18 +68,23 @@ export const Projects: FC = () => {
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
               className="flex flex-col justify-between rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 transition-colors group"
             >
-              <div className="p-6 space-y-3">
+              <div className="p-6 space-y-4">
                 
                 {/* Header */}
-                <div className="flex items-center justify-between gap-2 pb-1 border-b border-slate-100 dark:border-slate-800">
-                  <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                    {project.categoryLabel}
-                  </span>
+                <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                      {`0${idx + 1}`}
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                      {project.categoryLabel}
+                    </span>
+                  </div>
                   <span className="text-[11px] font-mono text-slate-400">
                     {project.date}
                   </span>
@@ -87,7 +92,7 @@ export const Projects: FC = () => {
 
                 {/* Title & Subtitle */}
                 <div>
-                  <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug">
+                  <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -96,12 +101,28 @@ export const Projects: FC = () => {
                 </div>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {project.summary}
                 </p>
 
+                {/* Key Metrics Strip */}
+                {project.metrics && project.metrics.length > 0 && (
+                  <div className="grid grid-cols-3 gap-2 py-2 px-3 rounded bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-center">
+                    {project.metrics.slice(0, 3).map((metric, mIdx) => (
+                      <div key={mIdx} className="overflow-hidden">
+                        <div className="text-[10px] font-mono uppercase text-slate-400 truncate">
+                          {metric.label}
+                        </div>
+                        <div className="text-xs font-bold font-mono text-slate-800 dark:text-slate-200 truncate">
+                          {metric.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
