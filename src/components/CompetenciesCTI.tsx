@@ -14,28 +14,28 @@ export const CompetenciesCTI: FC = () => {
   const activeComp = ctiCompetencies.find((c) => c.code === selectedCompCode) || ctiCompetencies[0];
 
   return (
-    <section id="cti" className="py-20 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cti" className="py-20 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 mb-3">
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             <Award className="w-3.5 h-3.5" />
-            <span>Référentiel Académique ENSEEIHT / CTI</span>
+            <span>Référentiel CTI & Approche Par Compétences</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Approche Par Compétences (APC)
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Validation des Compétences du Diplôme d'Ingénieur
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            Conformément aux exigences de la Commission des Titres d'Ingénieur (CTI), voici la matrice réflexive démontrant l'acquisition des 5 macro-compétences du titre d'ingénieur.
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            Matrice réflexive démontrant la maîtrise des 5 macro-compétences du titre d'ingénieur ENSEEIHT / CTI.
           </p>
         </div>
 
-        {/* 2-Column Interactive Matrix Layout */}
+        {/* 2-Column Structured Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left: Competency Selector Cards */}
-          <div className="lg:col-span-5 space-y-3">
+          {/* Left: Competency List */}
+          <div className="lg:col-span-5 space-y-2">
             {ctiCompetencies.map((comp) => {
               const isSelected = comp.code === selectedCompCode;
               return (
@@ -43,76 +43,76 @@ export const CompetenciesCTI: FC = () => {
                   key={comp.code}
                   type="button"
                   onClick={() => setSelectedCompCode(comp.code)}
-                  className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all border flex items-center justify-between gap-3 focus:outline-none focus:ring-2 focus:ring-rose-500 ${
+                  className={`w-full text-left p-4 rounded border transition-colors flex items-center justify-between gap-3 ${
                     isSelected
-                      ? "bg-slate-900 text-white dark:bg-slate-850 dark:border-rose-500/80 shadow-md shadow-slate-900/10 scale-101"
-                      : "bg-slate-50 dark:bg-slate-900/60 text-slate-800 dark:text-slate-200 border-slate-200/80 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm"
+                      : "bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
                   }`}
                 >
-                  <div className="flex items-center gap-3.5">
+                  <div className="flex items-center gap-3">
                     <span
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center font-black font-mono text-sm shrink-0 shadow-sm ${
+                      className={`w-8 h-8 rounded flex items-center justify-center font-bold text-xs shrink-0 ${
                         isSelected 
-                          ? "bg-rose-600 text-white" 
-                          : "bg-white dark:bg-slate-800 text-rose-600 dark:text-rose-400 border border-slate-200 dark:border-slate-700"
+                          ? "bg-white text-slate-900 dark:bg-slate-900 dark:text-white" 
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                       }`}
                     >
                       {comp.code}
                     </span>
                     <div>
-                      <h3 className="font-bold text-sm sm:text-base leading-snug">
+                      <div className="font-bold text-sm leading-snug">
                         {comp.title}
-                      </h3>
-                      <p className={`text-xs mt-0.5 line-clamp-1 ${isSelected ? "text-slate-300" : "text-slate-500 dark:text-slate-400"}`}>
+                      </div>
+                      <div className={`text-[11px] mt-0.5 line-clamp-1 ${isSelected ? "text-slate-300 dark:text-slate-600" : "text-slate-500"}`}>
                         {comp.shortDesc}
-                      </p>
+                      </div>
                     </div>
                   </div>
                   
-                  <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? "translate-x-1 text-rose-400" : "text-slate-400"}`} />
+                  <ChevronRight className={`w-4 h-4 shrink-0 ${isSelected ? "text-white dark:text-slate-900" : "text-slate-400"}`} />
                 </button>
               );
             })}
           </div>
 
-          {/* Right: Selected Competency Deep-Dive Box */}
+          {/* Right: Selected Competency Detail Box */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div className="p-6 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-5">
               
-              {/* Box Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-3">
-                  <div className="px-3 py-1 rounded-lg bg-rose-600 text-white font-mono font-black text-sm">
+              {/* Header */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <div className="flex items-center gap-2.5">
+                  <span className="px-2 py-0.5 rounded bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold text-xs">
                     {activeComp.code}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                     {activeComp.title}
                   </h3>
                 </div>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-                  Compétence Validée 2A
+                <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+                  Validée 2A
                 </span>
               </div>
 
-              {/* Competency Explanation */}
-              <div className="space-y-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono">
-                  Détail & Exigences Académiques
-                </h4>
-                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              {/* Requirements Description */}
+              <div className="space-y-1.5">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
+                  Détail & Exigences CTI
+                </div>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {activeComp.details}
                 </p>
               </div>
 
-              {/* Learning Outcomes Checklist */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono">
-                  Acquis d'Apprentissage Clés (Learning Outcomes)
-                </h4>
-                <ul className="space-y-2.5">
+              {/* Learning Outcomes */}
+              <div className="space-y-2">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
+                  Acquis d'Apprentissage Clés
+                </div>
+                <ul className="space-y-1.5">
                   {activeComp.learningOutcomes.map((outcome, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400 shrink-0 mt-0.5" />
                       <span>{outcome}</span>
                     </li>
                   ))}
@@ -120,22 +120,20 @@ export const CompetenciesCTI: FC = () => {
               </div>
 
               {/* Linked Projects Evidence */}
-              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono flex items-center gap-1.5">
-                  <FolderGit2 className="w-4 h-4 text-rose-500" />
-                  <span>Preuves & Projets de référence associés</span>
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono flex items-center gap-1.5">
+                  <FolderGit2 className="w-3.5 h-3.5" />
+                  <span>Projets de référence associés</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {activeComp.projectsLinked.map((proj) => (
                     <a
                       key={proj.id}
                       href="#projects"
-                      className="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-rose-400 dark:hover:border-rose-500 transition-colors flex items-center justify-between group"
+                      className="p-2.5 rounded bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-colors flex items-center justify-between text-xs font-medium text-slate-800 dark:text-slate-200"
                     >
-                      <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors line-clamp-1">
-                        {proj.title}
-                      </span>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      <span className="truncate">{proj.title}</span>
+                      <ChevronRight className="w-3 h-3 text-slate-400 shrink-0 ml-2" />
                     </a>
                   ))}
                 </div>

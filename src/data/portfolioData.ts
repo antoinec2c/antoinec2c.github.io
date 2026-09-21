@@ -155,7 +155,7 @@ export const ctiCompetencies: CTICompetency[] = [
     title: "Piloter & Manager des Projets",
     shortDesc: "Option Managership : Méthodes Agiles (Scrum), logistique et gestion des risques.",
     details: "Apports de l'Option Managership de l'ENSEEIHT complétés par le rôle de responsable financier en mini-entreprise : planification agile par sprints, gestion budgétaire autonome, intendance et logistique d'équipe en conditions réelles.",
-    color: "from-rose-500 to-pink-500",
+    color: "from-slate-700 to-slate-900",
     projectsLinked: [
       { id: "infra-fai", title: "Gestion de projet réseau et travail en équipe" },
       { id: "engagement-scout", title: "Organisation logistique et intendance autonome" }

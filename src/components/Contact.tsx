@@ -41,42 +41,42 @@ export const Contact: FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 mb-3">
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             <Mail className="w-3.5 h-3.5" />
-            <span>Me Contacter</span>
+            <span>Me Contacter & Opportunités</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Discutons de vos Projets & Opportunités
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Échanger sur un Projet ou une Proposition de Stage
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-            À la recherche d'un stagiaire ingénieur passionné pour mai 2025/2026 ? N'hésitez pas à m'écrire, je réponds rapidement !
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            À la recherche d'un stage technique de 3 mois à partir de juin 2027 (infrastructures réseaux, systèmes Unix, télécommunications ou gestion de projet). N'hésitez pas à me contacter directement.
           </p>
         </div>
 
         {/* Recruiter Quick Banner */}
-        <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-rose-600/10 via-sky-600/10 to-transparent border border-rose-200 dark:border-rose-900/50 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mb-10 p-6 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 text-center md:text-left">
-            <span className="text-xs font-bold font-mono uppercase tracking-wider text-rose-600 dark:text-rose-400">
-              Espace Recruteurs & Entreprises
+            <span className="text-[11px] font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Espace Recruteurs & Partenaires Industriels
             </span>
             <h3 className="font-bold text-base text-slate-900 dark:text-white">
-              Stage Élève-Ingénieur 2A — ENSEEIHT
+              Stage Élève-Ingénieur 2A — ENSEEIHT (Toulouse INP)
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-              Période : <strong>Mai - Août (12 à 16 semaines)</strong> • Convention Toulouse INP prête • Mobilité France & Étranger.
+            <p className="text-xs text-slate-600 dark:text-slate-400">
+              Période : <strong>Juin - Août 2027 (12 à 16 semaines)</strong> • Convention Toulouse INP prête • Mobilité France & International (Permis B).
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 shrink-0">
+          <div className="flex flex-wrap gap-2.5 shrink-0">
             <a
               href={personalInfo.cvFileFR}
               download
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-rose-600 hover:bg-rose-500 shadow-md shadow-rose-600/20 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors shadow-sm"
             >
               <Download className="w-4 h-4" />
               <span>CV Français (PDF)</span>
@@ -84,35 +84,35 @@ export const Contact: FC = () => {
             <a
               href={personalInfo.cvFileEN}
               download
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-xs font-semibold text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors"
             >
-              <Download className="w-4 h-4 text-sky-500" />
+              <Download className="w-4 h-4 text-slate-500" />
               <span>English Resume (PDF)</span>
             </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left: Contact Info Cards */}
           <div className="lg:col-span-5 space-y-4">
             
-            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-4">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">
+            <div className="p-6 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4 shadow-sm">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
                 Coordonnées directes
               </h3>
 
               {/* Email Card with Copy button */}
-              <div className="flex items-center justify-between p-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center justify-between p-3 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 shrink-0">
+                  <div className="p-2 rounded bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="truncate">
                     <div className="text-[11px] text-slate-400">Adresse Email</div>
                     <a 
                       href={`mailto:${personalInfo.email}`} 
-                      className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-rose-600 dark:hover:text-rose-400 truncate block"
+                      className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white truncate block underline-offset-2 hover:underline"
                     >
                       {personalInfo.email}
                     </a>
@@ -124,10 +124,10 @@ export const Contact: FC = () => {
                   onClick={handleCopyEmail}
                   title="Copier l'adresse email"
                   aria-label="Copier l'adresse email"
-                  className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                  className="p-2 rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-700 transition-colors"
                 >
                   {copied ? (
-                    <CheckCheck className="w-4 h-4 text-emerald-500" />
+                    <CheckCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   ) : (
                     <Copy className="w-4 h-4" />
                   )}
@@ -135,15 +135,15 @@ export const Contact: FC = () => {
               </div>
 
               {/* Phone Card */}
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <div className="p-2 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 shrink-0">
+              <div className="flex items-center gap-3 p-3 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850">
+                <div className="p-2 rounded bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-[11px] text-slate-400">Téléphone</div>
                   <a 
                     href={`tel:${personalInfo.phone}`} 
-                    className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 block"
+                    className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white block underline-offset-2 hover:underline"
                   >
                     {personalInfo.phone}
                   </a>
@@ -151,12 +151,12 @@ export const Contact: FC = () => {
               </div>
 
               {/* Location Card */}
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 shrink-0">
+              <div className="flex items-center gap-3 p-3 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850">
+                <div className="p-2 rounded bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[11px] text-slate-400">Localisation</div>
+                  <div className="text-[11px] text-slate-400">Localisation & Mobilité</div>
                   <div className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {personalInfo.location}
                   </div>
@@ -164,14 +164,14 @@ export const Contact: FC = () => {
               </div>
 
               {/* Social Links */}
-              <div className="pt-2 flex items-center gap-3">
+              <div className="pt-2 flex items-center gap-2">
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-400 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-sky-600 transition-colors shadow-sm"
+                  className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors shadow-sm"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-sky-600" />
+                  <LinkedinIcon className="w-4 h-4" />
                   <span>LinkedIn</span>
                 </a>
 
@@ -179,7 +179,7 @@ export const Contact: FC = () => {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-400 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors shadow-sm"
+                  className="flex-1 flex items-center justify-center gap-2 p-2.5 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors shadow-sm"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub</span>
@@ -194,16 +194,16 @@ export const Contact: FC = () => {
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="p-6 sm:p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
+              className="p-6 sm:p-8 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-4"
             >
-              <h3 className="font-bold text-base text-slate-900 dark:text-white mb-2">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
                 Envoyer un message
               </h3>
 
               {formSubmitted && (
-                <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
+                <div className="p-3.5 rounded border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-2">
                   <Check className="w-4 h-4 shrink-0" />
-                  <span>Votre client de messagerie s'est ouvert pour envoyer votre message. Merci !</span>
+                  <span>Votre client de messagerie a été ouvert avec les informations pré-remplies. Merci !</span>
                 </div>
               )}
 
@@ -218,8 +218,8 @@ export const Contact: FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Ex: Thales, Airbus, Orange..."
-                    className="w-full px-3.5 py-2.5 rounded-xl text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-500 dark:focus:ring-rose-400 text-slate-900 dark:text-white transition-colors"
+                    placeholder="Ex: Entreprise, RH, Maître de stage..."
+                    className="w-full px-3.5 py-2.5 rounded text-sm bg-slate-50 dark:bg-slate-850 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:border-slate-600 text-slate-900 dark:text-white transition-colors"
                   />
                 </div>
 
@@ -234,7 +234,7 @@ export const Contact: FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="contact@entreprise.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-500 dark:focus:ring-rose-400 text-slate-900 dark:text-white transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded text-sm bg-slate-50 dark:bg-slate-850 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:border-slate-600 text-slate-900 dark:text-white transition-colors"
                   />
                 </div>
               </div>
@@ -249,7 +249,7 @@ export const Contact: FC = () => {
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   placeholder="Ex: Proposition de stage technique 2A / Échange"
-                  className="w-full px-3.5 py-2.5 rounded-xl text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-500 dark:focus:ring-rose-400 text-slate-900 dark:text-white transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded text-sm bg-slate-50 dark:bg-slate-850 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:border-slate-600 text-slate-900 dark:text-white transition-colors"
                 />
               </div>
 
@@ -263,14 +263,14 @@ export const Contact: FC = () => {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Présentez brièvement votre besoin, vos projets ou votre opportunité de stage..."
-                  className="w-full px-3.5 py-2.5 rounded-xl text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-500 dark:focus:ring-rose-400 text-slate-900 dark:text-white transition-colors"
+                  placeholder="Présentez brièvement vos besoins, projets ou opportunités..."
+                  className="w-full px-3.5 py-2.5 rounded text-sm bg-slate-50 dark:bg-slate-850 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-1 focus:ring-slate-600 focus:border-slate-600 text-slate-900 dark:text-white transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-rose-600 hover:bg-rose-500 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-rose-500"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded text-xs sm:text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors shadow-sm"
               >
                 <Send className="w-4 h-4" />
                 <span>Envoyer le message</span>

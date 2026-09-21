@@ -37,7 +37,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-rose-500 selection:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-slate-800 selection:text-white dark:selection:bg-slate-200 dark:selection:text-slate-900 transition-colors duration-300">
       <Navbar activeSection={activeSection} />
       
       <main className="flex-grow">

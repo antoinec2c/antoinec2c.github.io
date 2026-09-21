@@ -13,21 +13,22 @@
 
   body {
     overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-/* Custom scrollbar */
+/* Custom sober scrollbar */
 @supports not (scrollbar-color: auto) {
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #94a3b8;
-    border-radius: 4px;
+    background: #cbd5e1;
+    border-radius: 3px;
   }
   .dark ::-webkit-scrollbar-thumb {
     background: #334155;
@@ -36,40 +37,8 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #94a3b8 transparent;
+  scrollbar-color: #cbd5e1 transparent;
 }
 .dark * {
   scrollbar-color: #334155 transparent;
-}
-
-/* Subtle tech grid background */
-.bg-grid-pattern {
-  background-size: 36px 36px;
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
-}
-
-.dark .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-/* Glow effects */
-.glow-effect {
-  position: relative;
-}
-.glow-effect::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(90deg, #c8102e, #0284c7);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.glow-effect:hover::before {
-  opacity: 1;
 }
