@@ -41,12 +41,12 @@ export const Engagement: FC = () => {
                 <Play className="w-4 h-4 text-slate-700 dark:text-slate-300" />
                 <span>{t("engagementPitchTitle")}</span>
               </div>
-              <span className="text-xs text-slate-500 font-mono">
+              <span className="text-xs text-slate-500">
                 {language === "en" ? "2-minute introduction" : "Présentation synthétique"}
               </span>
             </div>
 
-            <div className="relative w-full aspect-video rounded overflow-hidden bg-slate-950">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-slate-950">
               <iframe
                 className="w-full h-full"
                 src={personalInfo.videoPitchUrl}
@@ -60,7 +60,7 @@ export const Engagement: FC = () => {
           {/* Languages & Certifications Boxes */}
           <div className="lg:col-span-5 space-y-4">
             
-            <div className="rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
+            <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
                 <Award className="w-4 h-4 text-slate-700 dark:text-slate-300" />
                 <span>{language === "en" ? "Certifications & Credentials" : "Brevets & Certifications"}</span>
@@ -69,16 +69,16 @@ export const Engagement: FC = () => {
                 {personalInfo.certifications.map((cert) => (
                   <div 
                     key={cert}
-                    className="p-2.5 rounded bg-slate-50 dark:bg-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
+                    className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
                   >
                     <span>{cert}</span>
-                    <span className="text-slate-400 text-[10px]">{language === "en" ? "Certified" : "Validé"}</span>
+                    <span className="text-slate-400 text-xs">{language === "en" ? "Certified" : "Validé"}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
+            <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
                 <Languages className="w-4 h-4 text-slate-700 dark:text-slate-300" />
                 <span>{language === "en" ? "Languages & Proficiency" : "Langues & Mobilité"}</span>
@@ -87,10 +87,10 @@ export const Engagement: FC = () => {
                 {personalInfo.languages.map((lang) => (
                   <div 
                     key={lang.name}
-                    className="flex items-center justify-between p-2 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs"
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-200">{lang.name}</span>
-                    <span className="text-slate-500 dark:text-slate-400 font-mono text-[11px]">{lang.level}</span>
+                    <span className="text-slate-500 dark:text-slate-400 text-xs">{lang.level}</span>
                   </div>
                 ))}
               </div>
@@ -105,7 +105,7 @@ export const Engagement: FC = () => {
           {engagements.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm"
+              className="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm"
             >
               {/* Photo */}
               <div className="relative h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -118,7 +118,7 @@ export const Engagement: FC = () => {
                   }}
                 />
                 <div className="absolute bottom-2 left-2 right-2">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950/80 text-white border border-white/10">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-slate-950/80 text-white border border-white/10">
                     {item.period}
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export const Engagement: FC = () => {
                   <h3 className="font-bold text-sm text-slate-900 dark:text-white leading-snug">
                     {item.title}
                   </h3>
-                  <div className="text-xs text-slate-500 font-mono">
+                  <div className="text-xs text-slate-500 font-medium">
                     {item.role}
                   </div>
                   <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-2">
@@ -142,7 +142,7 @@ export const Engagement: FC = () => {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                      className="px-2.5 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                     >
                       {tag}
                     </span>

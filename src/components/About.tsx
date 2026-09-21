@@ -105,9 +105,9 @@ export const About: FC = () => {
             </div>
 
             {/* School & Option card */}
-            <div className="p-5 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between gap-4 shadow-sm">
+            <div className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between gap-4 shadow-sm">
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded bg-slate-900 dark:bg-slate-800 border border-slate-700 text-white font-mono font-bold flex items-center justify-center text-base shadow-sm">
+                <div className="w-11 h-11 rounded-lg bg-slate-900 dark:bg-slate-800 border border-slate-700 text-white font-bold tracking-wider flex items-center justify-center text-base shadow-sm">
                   N7
                 </div>
                 <div>
@@ -121,7 +121,7 @@ export const About: FC = () => {
                   </p>
                 </div>
               </div>
-              <span className="hidden sm:inline-flex px-2.5 py-1 rounded text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+              <span className="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                 2025 – 2028
               </span>
             </div>

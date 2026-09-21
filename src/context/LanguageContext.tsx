@@ -75,11 +75,11 @@ const translations: Record<Language, Record<string, string>> = {
     projectsBadge: "Engineering Portfolio",
     projectsTitle: "Case Studies & Technical Deliverables",
     projectsSubtitle: "Carrier-grade routing infrastructures, low-level POSIX Unix command shells, and fluid propulsion engineering models.",
-    projectsFilterAll: "All Case Studies",
-    projectsFilterReseau: "01. Network Infrastructure",
-    projectsFilterSysteme: "02. Unix Systems & C",
-    projectsFilterTipe: "03. Applied Physics & CFD",
-    projectsViewDetails: "Review Case Study & Architecture",
+    projectsFilterAll: "All Projects",
+    projectsFilterReseau: "Network Infrastructure",
+    projectsFilterSysteme: "Unix Systems & C",
+    projectsFilterTipe: "Applied Physics & CFD",
+    projectsViewDetails: "Review Case Study",
 
     // Modal
     modalProblem: "Engineering Challenge & Problem Statement",
@@ -203,11 +203,11 @@ const translations: Record<Language, Record<string, string>> = {
     projectsBadge: "Portefeuille d'Ingénierie",
     projectsTitle: "Études de Cas & Livrables Techniques",
     projectsSubtitle: "Infrastructures réseaux d'opérateur, interpréteurs de commandes Unix en C et modélisation physique expérimentale.",
-    projectsFilterAll: "Toutes les Études de Cas",
-    projectsFilterReseau: "01. Infrastructures Réseaux",
-    projectsFilterSysteme: "02. Systèmes Unix & C",
-    projectsFilterTipe: "03. Physique Appliquée & CFD",
-    projectsViewDetails: "Consulter l'Étude de Cas Complète",
+    projectsFilterAll: "Tous les Projets",
+    projectsFilterReseau: "Infrastructures Réseaux",
+    projectsFilterSysteme: "Systèmes Unix & C",
+    projectsFilterTipe: "Physique Appliquée & CFD",
+    projectsViewDetails: "Consulter la Réalisation",
 
     // Modal
     modalProblem: "Problématique & Enjeux d'Ingénierie",

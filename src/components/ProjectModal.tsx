@@ -65,7 +65,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               <span className="px-2.5 py-0.5 rounded text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
                 {project.categoryLabel}
               </span>
-              <span className="text-xs text-slate-500 font-mono">
+              <span className="text-xs text-slate-500 font-medium">
                 {project.context}
               </span>
             </div>
@@ -179,7 +179,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                className="px-2.5 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
               >
                 {tag}
               </span>
@@ -189,7 +189,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
         {/* Footer */}
         <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <div className="text-xs text-slate-400 font-mono">
+          <div className="text-xs text-slate-400">
             {project.date}
           </div>
 

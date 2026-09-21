@@ -99,7 +99,7 @@ export const CompetenciesCTI: FC = () => {
 
               {/* Requirements Description */}
               <div className="space-y-1.5">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
+                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
                   {language === "en" ? "CTI Framework Scope & Details" : "Détail & Exigences CTI"}
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -109,7 +109,7 @@ export const CompetenciesCTI: FC = () => {
 
               {/* Learning Outcomes */}
               <div className="space-y-2">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
+                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
                   {t("ctiLearningOutcomes")}
                 </div>
                 <ul className="space-y-1.5">
@@ -124,7 +124,7 @@ export const CompetenciesCTI: FC = () => {
 
               {/* Linked Projects Evidence */}
               <div className="space-y-2 pt-3 border-t border-slate-100 dark:border-slate-800">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono flex items-center gap-1.5">
+                <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
                   <FolderGit2 className="w-3.5 h-3.5" />
                   <span>{t("ctiAssociatedProjects")}</span>
                 </div>

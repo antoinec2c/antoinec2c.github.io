@@ -28,12 +28,12 @@ export const Projects: FC = () => {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+    <section id="projects" className="py-20 bg-slate-50/50 dark:bg-slate-900/30 border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">
             <Layers className="w-3.5 h-3.5" />
             <span>{t("projectsBadge")}</span>
           </div>
@@ -54,10 +54,10 @@ export const Projects: FC = () => {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3.5 py-2 rounded text-xs font-semibold transition-colors ${
+                className={`px-4 py-2 rounded-lg text-xs font-medium transition-colors ${
                   isSelected
-                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
+                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm font-semibold"
+                    : "bg-white text-slate-700 hover:bg-slate-100 dark:bg-slate-850 dark:text-slate-300 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-750"
                 }`}
               >
                 {cat.label}
@@ -68,24 +68,19 @@ export const Projects: FC = () => {
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project, idx) => (
+          {filteredProjects.map((project) => (
             <article
               key={project.id}
-              className="flex flex-col justify-between rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 transition-colors group"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-colors group"
             >
               <div className="p-6 space-y-4">
                 
                 {/* Header */}
-                <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                      {`0${idx + 1}`}
-                    </span>
-                    <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                      {project.categoryLabel}
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-mono text-slate-400">
+                <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-800 text-xs">
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">
+                    {project.categoryLabel}
+                  </span>
+                  <span className="text-slate-400">
                     {project.date}
                   </span>
                 </div>
@@ -101,19 +96,19 @@ export const Projects: FC = () => {
                 </div>
 
                 {/* Summary */}
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {project.summary}
                 </p>
 
-                {/* Key Metrics Strip */}
+                {/* Key Metrics / Highlights Strip */}
                 {project.metrics && project.metrics.length > 0 && (
-                  <div className="grid grid-cols-3 gap-2 py-2 px-3 rounded bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 text-center">
+                  <div className="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-lg bg-slate-50 dark:bg-slate-850 border border-slate-100 dark:border-slate-800 text-center">
                     {project.metrics.slice(0, 3).map((metric, mIdx) => (
                       <div key={mIdx} className="overflow-hidden">
-                        <div className="text-[10px] font-mono uppercase text-slate-400 truncate">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate font-normal">
                           {metric.label}
                         </div>
-                        <div className="text-xs font-bold font-mono text-slate-800 dark:text-slate-200 truncate">
+                        <div className="text-xs font-semibold text-slate-900 dark:text-slate-100 truncate mt-0.5">
                           {metric.value}
                         </div>
                       </div>
@@ -126,7 +121,7 @@ export const Projects: FC = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                      className="px-2.5 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
                     >
                       {tag}
                     </span>
@@ -136,7 +131,7 @@ export const Projects: FC = () => {
               </div>
 
               {/* Card Footer Actions */}
-              <div className="p-4 px-6 bg-slate-50 dark:bg-slate-850 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <div className="p-4 px-6 bg-slate-50/50 dark:bg-slate-850/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <button
                   type="button"
                   onClick={() => setSelectedProject(project)}
@@ -152,7 +147,7 @@ export const Projects: FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`GitHub repo for ${project.title}`}
-                    className="p-1 rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                    className="p-1 rounded text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" />
                   </a>

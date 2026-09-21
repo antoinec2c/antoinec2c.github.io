@@ -64,7 +64,7 @@ export const Timeline: FC = () => {
 
                 {/* Card */}
                 <div
-                  className={`p-5 sm:p-6 rounded border transition-colors ${
+                  className={`p-5 sm:p-6 rounded-xl border transition-colors ${
                     isStageSearch
                       ? "bg-slate-50 dark:bg-slate-900 border-slate-400 dark:border-slate-600"
                       : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800"
@@ -72,12 +72,12 @@ export const Timeline: FC = () => {
                 >
                   {/* Period & Badge */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
-                    <span className="text-xs font-bold font-mono text-slate-800 dark:text-slate-200">
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
                       {item.period}
                     </span>
                     {item.badge && (
                       <span
-                        className={`px-2 py-0.5 rounded text-[11px] font-semibold border ${
+                        className={`px-2.5 py-0.5 rounded-full text-xs font-medium border ${
                           isStageSearch
                             ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white"
                             : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
@@ -114,11 +114,11 @@ export const Timeline: FC = () => {
 
                   {/* Skills tags */}
                   {item.skillsAcquired && (
-                    <div className="flex flex-wrap gap-1 pt-3 mt-3 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex flex-wrap gap-1.5 pt-3 mt-3 border-t border-slate-100 dark:border-slate-800">
                       {item.skillsAcquired.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                          className="px-2.5 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
                         >
                           {skill}
                         </span>

@@ -62,9 +62,9 @@ export const Contact: FC = () => {
         </div>
 
         {/* Recruiter Quick Banner */}
-        <div className="mb-10 p-6 rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="mb-10 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 text-center md:text-left">
-            <span className="text-[11px] font-bold font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
               {t("contactRecruiterBoxTitle")}
             </span>
             <h3 className="font-bold text-base text-slate-900 dark:text-white">
