@@ -74,7 +74,7 @@ export const personalInfo = {
   phone: "+33 6 95 68 58 84",
   location: "Toulouse, France (Mobile France entière & International)",
   linkedin: "https://linkedin.com/in/antoine-chaptal-8b1a2a37b",
-  github: "https://github.com/bobbyfjgh",
+  github: "https://github.com/antoinec2c",
   profilePhoto: "/img/IMG_4602.jpg",
   profilePhotoAlt: "Portrait d'Antoine Chaptal",
   videoPitchUrl: "https://www.youtube.com/embed/CleSc_Oj3v0",
@@ -209,7 +209,7 @@ export const projects: Project[] = [
       { label: "Outil CAO/CFD", value: "SolidWorks" }
     ],
     competencies: ["C1 - Concevoir & Modéliser", "C3 - Mesurer, Analyser & Valider", "C4 - Piloter un projet"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   },
   {
     id: "cyber-ctf",
@@ -235,7 +235,7 @@ export const projects: Project[] = [
       { label: "Focus", value: "Réseaux & Sécurité" }
     ],
     competencies: ["C2 - Développer & Implémenter", "C3 - Mesurer, Analyser & Valider"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   },
   {
     id: "chaine-sdr-telecom",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
       { label: "Outils", value: "MATLAB & GNU Radio" }
     ],
     competencies: ["C1 - Concevoir & Modéliser", "C3 - Mesurer, Analyser & Valider"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   },
   {
     id: "archi-reseau-securisee",
@@ -287,7 +287,7 @@ export const projects: Project[] = [
       { label: "Plateforme", value: "Cisco & GNS3" }
     ],
     competencies: ["C1 - Concevoir & Modéliser", "C4 - Piloter & Gérer un projet"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   },
   {
     id: "serveur-audio-sockets",
@@ -313,7 +313,7 @@ export const projects: Project[] = [
       { label: "Latence streaming", value: "< 25 ms" }
     ],
     competencies: ["C2 - Développer & Implémenter", "C3 - Mesurer, Analyser & Valider"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   },
   {
     id: "eportfolio-react",
@@ -339,7 +339,7 @@ export const projects: Project[] = [
       { label: "Hébergement", value: "GitHub Pages" }
     ],
     competencies: ["C2 - Développer & Implémenter", "C4 - Piloter un projet"],
-    githubUrl: "https://github.com/bobbyfjgh"
+    githubUrl: "https://github.com/antoinec2c"
   }
 ];
 
