@@ -1,3 +1,5 @@
+import { useLanguage } from "../context/LanguageContext";
+
 export interface Project {
   id: string;
   title: string;
@@ -24,7 +26,7 @@ export interface SkillCategory {
   iconName: "Network" | "Terminal" | "Radio" | "Users" | "Shield";
   skills: {
     name: string;
-    level: "Notions" | "Intermédiaire" | "Avancé" | "Maîtrisé";
+    level: "Notions" | "Intermédiaire" | "Avancé" | "Maîtrisé" | "Beginner" | "Intermediate" | "Advanced" | "Proficient";
     progress: number;
     description?: string;
   }[];
@@ -61,7 +63,440 @@ export interface EngagementItem {
   tags: string[];
 }
 
-export const personalInfo = {
+export interface PortfolioDataset {
+  personalInfo: typeof personalInfoEN;
+  ctiCompetencies: CTICompetency[];
+  projects: Project[];
+  engagements: EngagementItem[];
+  skillCategories: SkillCategory[];
+  timeline: TimelineItem[];
+}
+
+/* =========================================================================
+   ENGLISH DATASET (DEFAULT)
+========================================================================= */
+
+export const personalInfoEN = {
+  name: "Antoine Chaptal",
+  fullName: "Antoine Chaptal de Chanteloup",
+  role: "Engineering Student in Networks, Systems & Telecommunications",
+  school: "Toulouse INP — ENSEEIHT (N7)",
+  promotion: "2025 – 2028",
+  specialization: "Digital Sciences — Networks & Telecommunications Major",
+  tagline: "Specialized in network interconnection architectures (TCP/IP, routing, Unix), systems programming, and telecommunications, with operational leadership and agile project management skills.",
+  status: "Actively seeking a 3-month technical internship starting June 2027",
+  email: "antoine.chaptaldechanteloup@etu.inp-n7.fr",
+  phone: "+33 6 95 68 58 84",
+  location: "Toulouse, France (Nationwide & Worldwide Mobility • Driving License B)",
+  linkedin: "https://linkedin.com/in/antoine-chaptal",
+  github: "https://github.com/antoinec2c",
+  profilePhoto: "/img/IMG_4602.jpg",
+  profilePhotoAlt: "Portrait of Antoine Chaptal",
+  videoPitchUrl: "https://www.youtube.com/embed/CleSc_Oj3v0",
+  cvFile: "/pdfs/CV_Antoine_Chaptal_EN.pdf",
+  cvFileFR: "/pdfs/CV_Antoine_Chaptal.pdf",
+  cvFileEN: "/pdfs/CV_Antoine_Chaptal_EN.pdf",
+  bio: "Engineering student at ENSEEIHT (Toulouse INP) specializing in Networks & Telecommunications with the Agile Managership Track (Scrum), following three intensive years in French scientific preparatory classes (CPGE PCSI / PSI* in Le Mans and Tours). I combine a rigorous foundation in low-level protocol architectures (TCP/IP, dynamic routing RIP/OSPF, C/Unix POSIX systems programming, Quagga, Wireshark) with proven agile delivery capabilities and operational leadership developed as an airborne reservist in the 1st Parachute Chasseur Regiment (1er RCP) and as a scout troop leader.",
+  stats: [
+    { label: "Education", value: "ENSEEIHT", sublabel: "Toulouse INP" },
+    { label: "Major", value: "Networks & Telecoms", sublabel: "Agile Managership" },
+    { label: "Target Internship", value: "3 months from June 2027", sublabel: "Technical Internship" },
+    { label: "Involvement", value: "1st RCP Reservist", sublabel: "& Scout Troop Leader" },
+  ],
+  languages: [
+    { name: "French", level: "Native speaker" },
+    { name: "English", level: "B2 / Professional (C1 in CPGE)" },
+    { name: "Spanish", level: "Basic notions (A2)" },
+  ],
+  certifications: [
+    "Higher Military Preparation (PMS 2021–2022)",
+    "First Aid Certificate (PSC1)",
+    "National Digital Competency Certification (PIX)",
+    "Driving License (License B)"
+  ]
+};
+
+export const ctiCompetenciesEN: CTICompetency[] = [
+  {
+    code: "C1",
+    title: "Design & Model",
+    shortDesc: "Hierarchical IP address schemes and complex physical system modeling.",
+    details: "Capacity to design end-to-end architectures: hierarchical IP schemes (VLSM/CIDR), ISP network topology sizing, analytical hydrodynamic modeling of marine propulsion (Bernoulli, momentum conservation), and numerical Python simulations.",
+    color: "from-blue-500 to-cyan-500",
+    projectsLinked: [
+      { id: "infra-fai", title: "ISP Network Architecture Deployment (Quagga)" },
+      { id: "tipe-propulsion", title: "TIPE: Kort Nozzle Modeling & Python Simulation" }
+    ],
+    learningOutcomes: [
+      "Design of multi-subnet local area network architectures with VLSM",
+      "Mathematical modeling and empirical confrontation with physical laws",
+      "Integration of dynamic multi-area routing and failover constraints"
+    ]
+  },
+  {
+    code: "C2",
+    title: "Develop & Implement",
+    shortDesc: "Low-level Unix systems programming, POSIX shell, and algorithms.",
+    details: "Mastery of systems programming in C under Linux: process lifecycle (fork, exec), inter-process communication (pipes), I/O redirections, strict memory safety verified with Valgrind, and object-oriented programming in Java, Ada, and Python.",
+    color: "from-emerald-500 to-teal-500",
+    projectsLinked: [
+      { id: "mini-shell", title: "Unix Command Line Interpreter (C Mini-Shell)" },
+      { id: "eportfolio-refonte", title: "Engineering E-Portfolio React/Tailwind Architecture" }
+    ],
+    learningOutcomes: [
+      "Implementation of an interactive Unix command interpreter with REPL loop",
+      "Low-level manipulation of file descriptors, signals, and concurrent processes",
+      "Writing robust, modular code guaranteed zero-leak with Valgrind"
+    ]
+  },
+  {
+    code: "C3",
+    title: "Measure, Analyze & Validate",
+    shortDesc: "Wireshark packet inspection, hydraulic test benches, and quality audits.",
+    details: "Systematic experimental validation: packet analysis and protocol auditing with Wireshark (RIP, OSPF, DNS, HTTP, NAT), physical fluid testing with Pitot tube for TIPE, and code quality control.",
+    color: "from-amber-500 to-orange-500",
+    projectsLinked: [
+      { id: "infra-fai", title: "Packet Analysis and Routing Convergence in Wireshark" },
+      { id: "tipe-propulsion", title: "Experimental Fluid Measurements with Pitot Tube Bench" }
+    ],
+    learningOutcomes: [
+      "Protocol capture and inspection with advanced Wireshark filters",
+      "Rigorous verification between analytical theory, CFD simulation, and physical data",
+      "Verification of functional compliance against technical requirements"
+    ]
+  },
+  {
+    code: "C4",
+    title: "Lead & Manage Projects",
+    shortDesc: "Agile Managership Track (Scrum), logistics, and operational risk management.",
+    details: "Applied learnings from the ENSEEIHT Managership Track combined with financial management in a mini-enterprise: sprint planning, autonomous budget tracking, team logistics, and operational coordination in real conditions.",
+    color: "from-slate-700 to-slate-900",
+    projectsLinked: [
+      { id: "infra-fai", title: "Network Project Delivery and Team Coordination" },
+      { id: "engagement-scout", title: "Logistics and Autonomous Financial Management" }
+    ],
+    learningOutcomes: [
+      "Practice of agile methodology (Scrum roles, ceremonies, user stories)",
+      "Budget management, cash flow tracking, and expense optimization",
+      "Human coordination, communication, and milestone achievement"
+    ]
+  },
+  {
+    code: "C5",
+    title: "Ethics, Resilience & Service",
+    shortDesc: "Discipline, operational leadership, cohesion, and civic responsibility.",
+    details: "Active commitment to collective service: operational reservist in the 1st Parachute Chasseur Regiment (1er RCP), youth mentorship in scouting, and community civic actions.",
+    color: "from-purple-500 to-indigo-500",
+    projectsLinked: [
+      { id: "engagement-rcp", title: "Airborne Reservist in the 1st RCP (Paratroopers)" },
+      { id: "engagement-scout", title: "Scout Troop Leader" }
+    ],
+    learningOutcomes: [
+      "Mental endurance, self-control, and decision-making under operational pressure",
+      "Resourcefulness, adaptability, and unwavering team cohesion",
+      "Mentorship, active pedagogy, and personal accountability"
+    ]
+  }
+];
+
+export const projectsEN: Project[] = [
+  {
+    id: "infra-fai",
+    title: "ISP Network Infrastructure & Routing Architecture Deployment",
+    subtitle: "Dynamic Routing (RIP/OSPF), NAT Gateways, Quagga, DNS & Wireshark",
+    category: "reseau",
+    categoryLabel: "Network & Telecom Infrastructure",
+    summary: "Comprehensive network design, hierarchical IP address planning (VLSM/CIDR), and deployment of an ISP topology featuring dynamic routing and application services under Linux.",
+    problematique: "How to interconnect multiple client local area networks and hosting servers across a resilient core network while guaranteeing fast automated convergence and address translation for public access?",
+    solution: "Designed a multi-tier VLSM/CIDR address allocation. Configured Quagga routing suite on Linux to activate RIP and OSPF dynamic routing. Deployed NAT/PAT gateways with iptables, established Bind DNS and Apache Web servers, and conducted packet analysis under Wireshark.",
+    description: "Engineering network deployment project at ENSEEIHT: complete ISP architecture modeling client branch offices and a core transit network. Defined optimal subnets without address waste, configured static and dynamic routing tables with automated failover, deployed infrastructure services, and validated protocol compliance under Wireshark.",
+    tags: ["Linux", "Quagga", "Wireshark", "OSPF / RIP", "VLSM / CIDR", "NAT / PAT", "DNS / Web", "TCP/IP"],
+    context: "Network Engineering Project (ENSEEIHT)",
+    date: "2026",
+    highlights: [
+      "Hierarchical VLSM/CIDR IP allocation plan for subscriber networks and core links.",
+      "OSPF and RIP dynamic routing with automated failover and convergence upon link failure.",
+      "Deep Wireshark packet capture inspecting recursive DNS and stateful NAT translations."
+    ],
+    metrics: [
+      { label: "Environment", value: "Linux & Quagga" },
+      { label: "Routing", value: "RIP & OSPF" },
+      { label: "Audit", value: "Wireshark" }
+    ],
+    competencies: ["C1 - Design & Model", "C3 - Measure, Analyze & Validate", "C4 - Manage Projects"],
+    githubUrl: "https://github.com/antoinec2c"
+  },
+  {
+    id: "mini-shell",
+    title: "Unix Command Line Interpreter Design (Mini-Shell in C)",
+    subtitle: "Low-level C systems programming, POSIX standards, process lifecycle & Valgrind",
+    category: "systeme",
+    categoryLabel: "Unix Systems Programming",
+    summary: "Development under Linux of an interactive command line interpreter managing child processes (fork, exec), anonymous inter-process pipes, and I/O redirections with zero memory leaks.",
+    problematique: "How to engineer a robust command line interpreter executing multi-stage pipeline commands concurrently while ensuring signal safety and avoiding orphaned resources?",
+    solution: "Modular C system architecture leveraging POSIX system calls: Read-Eval-Print-Loop (REPL), command string parsing, process creation via fork() and image replacement via execvp(), pipeline cascading via pipe() and dup2(), zombie harvesting via waitpid(), and thorough Valgrind memory audits.",
+    description: "C systems programming project at ENSEEIHT. The mini-shell supports built-in commands (cd, exit), external system binary execution, I/O stream redirections (>, <, >>), and multi-stage pipeline chaining (|). Strict emphasis was placed on releasing all memory allocations and closing file descriptors to prevent deadlocks.",
+    tags: ["C Language", "Linux / POSIX", "fork / exec", "IPC Pipes", "Redirections", "Valgrind", "Makefile"],
+    context: "Systems Programming Project (ENSEEIHT)",
+    date: "2026",
+    highlights: [
+      "Seamless execution of multi-stage pipelines (e.g. cat file | grep pattern | wc -l).",
+      "Flawless memory audit: 0 bytes lost across all test suites under Valgrind (zero leaks).",
+      "Graceful signal handling (SIGINT, SIGTSTP) and parent/child process synchronization."
+    ],
+    metrics: [
+      { label: "Language", value: "C / POSIX" },
+      { label: "Memory", value: "0 Leaks (Valgrind)" },
+      { label: "Architecture", value: "Processes & Pipes" }
+    ],
+    competencies: ["C2 - Develop & Implement", "C3 - Measure, Analyze & Validate"],
+    githubUrl: "https://github.com/antoinec2c"
+  },
+  {
+    id: "tipe-propulsion",
+    title: "TIPE Research: Naval Propulsion Hydrodynamic Modeling & Optimization",
+    subtitle: "Ducted propeller (Kort nozzle), analytical fluid mechanics, Python simulation & Pitot bench",
+    category: "tipe",
+    categoryLabel: "Applied Research & Physical Modeling",
+    summary: "Theoretical and experimental investigation into Kort nozzle propulsive efficiency gains: analytical modeling, Python numerical simulator, SolidWorks CAD, 3D printing, and Pitot tube velocity measurements.",
+    problematique: "Under which operating regimes does the addition of a Kort nozzle yield significant exit velocity and bollard pull thrust gains compared to an open propeller?",
+    solution: "Comprehensive scientific triangulation: 1) Analytical modeling based on Bernoulli equations and momentum conservation; 2) 3D CAD modeling (SolidWorks) and 3D-printed scaled prototype; 3) Fluid test bench with Pitot tube flow velocity measurements; 4) Python numerical simulator comparing experimental data against CFD flow simulations.",
+    description: "Supervised Personal Research Project (TIPE) conducted in scientific preparatory classes (PCSI / PSI*). Formulated thrust equations for ducted vs free propellers, constructed a hydraulic test bench, and validated findings against CFD flow simulations, proving efficiency gains at low speeds for tugboats and workboats.",
+    tags: ["Python", "SolidWorks", "CFD Simulation", "Fluid Dynamics", "Pitot Tube", "3D Printing", "Test Bench"],
+    context: "CPGE TIPE (Lycées Montesquieu & Descartes)",
+    date: "2024 – 2025",
+    highlights: [
+      "Rigorous triangulation: analytical theory ↔ Pitot tube measurements ↔ Python/CFD simulator.",
+      "Full 3D CAD modeling in SolidWorks and additive manufacturing prototype production.",
+      "Quantified fluid exit velocity gains resulting from hydrodynamic ducting."
+    ],
+    metrics: [
+      { label: "Methodology", value: "Theory + Bench + CFD" },
+      { label: "Measurement", value: "Pitot Tube" },
+      { label: "Tools", value: "Python & SolidWorks" }
+    ],
+    competencies: ["C1 - Design & Model", "C3 - Measure, Analyze & Validate", "C4 - Manage Projects"],
+    githubUrl: "https://github.com/antoinec2c"
+  },
+  {
+    id: "eportfolio-refonte",
+    title: "Engineering E-Portfolio Design & Architecture",
+    subtitle: "Responsive React 19, TypeScript, Vite & Tailwind CSS web application deployed on GitHub Pages",
+    category: "systeme",
+    categoryLabel: "Web Engineering & Tooling",
+    summary: "Complete redesign of an engineering portfolio with modular component architecture, native dark/light theme, accessible dialogs, and continuous integration via GitHub Actions.",
+    problematique: "How to build a responsive, high-performance showcase validating CTI engineering competencies while maintaining clean executive aesthetics?",
+    solution: "Modern stack based on React 19 and Vite for sub-3s builds, strict TypeScript typing, Tailwind CSS styling, native HTML5 accessible `<dialog>` modals, and automated CI/CD pipeline deployed to GitHub Pages.",
+    description: "Full-stack frontend development project supporting technical internship search and CTI competency accreditation at ENSEEIHT. Features bilingual switching, project modal deep dives, and direct CV access.",
+    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "GitHub Actions", "GitHub Pages", "i18n"],
+    context: "Personal Engineering Project",
+    date: "2026",
+    highlights: [
+      "Modular architecture and reusable components with centralized data management.",
+      "Sub-3 second build times and lightweight bundle (< 100 kB gzipped).",
+      "Automated deployment on antoinec2c.github.io on every push."
+    ],
+    metrics: [
+      { label: "Vite Build", value: "< 3s" },
+      { label: "CSS Weight", value: "5 kB gzipped" },
+      { label: "Hosting", value: "antoinec2c.github.io" }
+    ],
+    competencies: ["C2 - Develop & Implement", "C4 - Manage Projects"],
+    githubUrl: "https://github.com/antoinec2c"
+  }
+];
+
+export const engagementsEN: EngagementItem[] = [
+  {
+    title: "Airborne Operational Reservist (FGIR) — 1st RCP",
+    role: "1st Parachute Chasseur Regiment • French Army",
+    period: "July 2026 (PMS in 2021–2022)",
+    image: "/img/reserve.jpg",
+    description: "Military operational training (FGIR): physical and mental resilience, discipline, teamwork, and operational stress management within the elite 1st RCP paratroopers. Higher Military Preparation (PMS) completed in 2021–2022.",
+    tags: ["1st RCP", "Resilience", "Discipline", "Airborne", "Cohesion", "PMS"]
+  },
+  {
+    title: "Troop Leader — Scouting",
+    role: "Direction and mentoring of a youth scout troop (ages 12-17)",
+    period: "2025 – Present",
+    image: "/img/scout.jpg",
+    description: "Leading and mentoring a troop of 12 young scouts: complete logistic planning, equipment stewardship, and autonomous budget management for outdoor camps. Active pedagogy, value transmission, and safety leadership.",
+    tags: ["Leadership", "Logistics", "Budgeting", "Mentorship", "Autonomy"]
+  },
+  {
+    title: "Chief Financial Officer — Student Mini-Enterprise",
+    role: "Entrepreneurial team venture",
+    period: "2017 – 2018",
+    image: "/img/inclusion.jpg",
+    description: "Managed initial operating budget (€500) and strict cash flow tracking for a 10-person student enterprise. First-hand practical experience in financial oversight and collaborative delivery.",
+    tags: ["Finance", "Treasury", "Mini-Enterprise", "Rigor", "Teamwork"]
+  },
+  {
+    title: "Heritage Restoration — Manoir de Blossac",
+    role: "Volunteer restoration workcamp in Brittany",
+    period: "Summers 2024 & 2025",
+    image: "/img/blossac.jpg",
+    description: "Volunteer manual work on the restoration of Manoir de Blossac in Brittany following severe regional flooding. Demanding craftsmanship, preservation of historic architecture, and solidarity.",
+    tags: ["Heritage", "Craftsmanship", "Solidarity", "Brittany"]
+  },
+  {
+    title: "International Mobility & Trekking",
+    role: "European upbringing & Personal resilience",
+    period: "Brussels, Camino del Norte, Europe",
+    image: "/img/brussels.jpg",
+    description: "Childhood spent in Brussels within a multicultural European environment. Autonomous long-distance trekking on the Camino del Norte (St. James Way), language stays in Germany, Austria, and Italy. Ready for international exchange in Ireland and Nordic countries.",
+    tags: ["Brussels", "Camino del Norte", "Openness", "Autonomy"]
+  }
+];
+
+export const skillCategoriesEN: SkillCategory[] = [
+  {
+    id: "reseau",
+    title: "Networks & Systems",
+    iconName: "Network",
+    skills: [
+      { name: "TCP/IP Architecture & OSI Model", level: "Proficient", progress: 95, description: "Protocol stacks, hierarchical IP planning (VLSM/CIDR), inter-network communication" },
+      { name: "Dynamic & Static Routing (RIP, OSPF)", level: "Advanced", progress: 85, description: "Quagga configuration, convergence, multi-area hierarchy, routing metrics" },
+      { name: "Linux / Unix Operating Systems & Bash", level: "Proficient", progress: 90, description: "System administration, shell scripting, process management, permissions" },
+      { name: "Packet Analysis & Protocols (Wireshark)", level: "Proficient", progress: 90, description: "Deep packet inspection, troubleshooting, expert protocol display filters" },
+      { name: "Network Infrastructure Services (DNS, Web, NAT)", level: "Advanced", progress: 85, description: "iptables NAT/PAT gateways, Bind DNS servers, Apache Web servers" },
+      { name: "Containerization & Versioning (Docker, Git)", level: "Advanced", progress: 80, description: "Testing environments, distributed version control, CI/CD automation" },
+    ]
+  },
+  {
+    id: "programmation",
+    title: "Programming",
+    iconName: "Terminal",
+    skills: [
+      { name: "C Language (Unix POSIX Systems Programming)", level: "Advanced", progress: 90, description: "Process lifecycle (fork, exec), IPC pipes, signal handling, Valgrind memory audits" },
+      { name: "Python (Scripting, Networking & Simulation)", level: "Proficient", progress: 90, description: "Automation scripting, TIPE numerical simulation, data analysis" },
+      { name: "Java / Object-Oriented Programming", level: "Advanced", progress: 80, description: "OOP principles, classes, encapsulation, polymorphism, design patterns" },
+      { name: "Ada (Imperative Programming & Rigor)", level: "Advanced", progress: 80, description: "Strong typing, algorithmic rigor, software architecture modeling (ENSEEIHT 1A)" },
+      { name: "Relational Databases & SQL", level: "Advanced", progress: 80, description: "Relational modeling, complex SQL queries, database integrity constraints" },
+      { name: "Matlab / Signal Processing", level: "Advanced", progress: 85, description: "Matrix computing, signal modeling, digital filtering, Fourier analysis" },
+    ]
+  },
+  {
+    id: "management",
+    title: "Management & Methods",
+    iconName: "Users",
+    skills: [
+      { name: "Agile Managership Track (ENSEEIHT)", level: "Proficient", progress: 90, description: "Organizational management, team leadership, strategic decision-making" },
+      { name: "Agile Delivery (Scrum, Sprints)", level: "Advanced", progress: 85, description: "User story decomposition, sprint ceremonies, value-driven execution" },
+      { name: "Risk Management & Field Logistics", level: "Proficient", progress: 90, description: "Stewardship, contingency handling, autonomous outdoor camp organization" },
+      { name: "Budgeting & Financial Tracking", level: "Advanced", progress: 85, description: "Cash flow tracking, expense allocation (mini-enterprise and scouting experience)" },
+      { name: "CTI Engineering Framework (APC)", level: "Proficient", progress: 90, description: "Design, mathematical modeling, experimental validation, and reflective engineering posture" },
+    ]
+  },
+  {
+    id: "telecom",
+    title: "Telecommunications & Signal",
+    iconName: "Radio",
+    skills: [
+      { name: "Telecom Architecture & Modulations", level: "Advanced", progress: 85, description: "Digital modulations (BPSK, QPSK, QAM), constellation diagrams, BER curves" },
+      { name: "Digital Signal Processing (DSP)", level: "Advanced", progress: 85, description: "Sampling theorem, FIR/IIR digital filtering, Fast Fourier Transform (FFT)" },
+      { name: "Software Defined Radio (SDR) & Transmission", level: "Intermediate", progress: 75, description: "Baseband processing, frequency transposition, matched filters" },
+      { name: "Physical Modeling & CFD (SolidWorks)", level: "Advanced", progress: 85, description: "3D CAD modeling, computational fluid dynamics (CFD) simulation (TIPE)" },
+    ]
+  }
+];
+
+export const timelineEN: TimelineItem[] = [
+  {
+    id: "stage-2a-search",
+    period: "Starting June 2027 (3 months)",
+    title: "Active Search: Technical Engineering Student Internship",
+    institution: "Industry Leader in Networks, Systems, Telecoms or Cybersecurity",
+    location: "Toulouse, Nationwide (France) or Worldwide",
+    type: "experience",
+    badge: "Target Opportunity",
+    description: [
+      "Objective: Apply core competencies in network architectures (TCP/IP, dynamic routing), Linux system administration, and C/Python development to high-impact engineering projects.",
+      "Target Fields: Telecom operator/enterprise network engineering, ISP service monitoring, infrastructure security, system administration, and virtualization.",
+      "Value Offered: Academic rigor (CPGE PSI* & ENSEEIHT), hands-on technical validation (Quagga, Wireshark, Unix shell in C), and proven leadership resilience (1st RCP, scouting)."
+    ],
+    skillsAcquired: ["IP Networks", "Quagga / OSPF", "Linux / POSIX C", "Operational Leadership", "Agile Management"]
+  },
+  {
+    id: "n7-cursus",
+    period: "2025 – 2028 (Degree in 2028)",
+    title: "Master of Science in Engineering — Networks & Telecommunications",
+    institution: "Toulouse INP — ENSEEIHT (N7)",
+    location: "Toulouse, France",
+    type: "education",
+    badge: "In Progress (Year 2)",
+    description: [
+      "Core Curriculum: Network architectures & protocols (TCP/IP), Unix operating systems, Routing, Digital signal processing, Object-oriented programming (Java, Ada, C).",
+      "Agile Managership Track: Project management (Scrum / agile methods), organizational leadership, and team management.",
+      "Key Projects: Complete ISP infrastructure deployment (Quagga, Wireshark, NAT/DNS) and Unix mini-shell command interpreter in C."
+    ],
+    skillsAcquired: ["TCP/IP & Routing", "Unix & POSIX C", "Signal Processing", "Agile / Scrum Methods", "Managership Track"]
+  },
+  {
+    id: "cpge-cursus",
+    period: "2022 – 2025 (3 years)",
+    title: "Scientific Preparatory Classes (CPGE) — PCSI / PSI*",
+    institution: "Lycée Montesquieu (Le Mans) & Lycée Descartes (Tours)",
+    location: "Le Mans & Tours, France",
+    type: "education",
+    badge: "PCSI / PSI* Track",
+    description: [
+      "Intensive undergraduate preparation in advanced Mathematics, Physics, Engineering Sciences, and Algorithms (Python / SQL).",
+      "Rigorous scientific methodology and mental endurance facing complex problems.",
+      "TIPE Project: Naval Propulsion Hydrodynamic Modeling (Ducted Kort nozzle, Python simulation, Pitot bench, and SolidWorks CFD)."
+    ],
+    skillsAcquired: ["Mathematics", "Physics", "Engineering Sciences", "Python / SQL", "TIPE Research"]
+  },
+  {
+    id: "engagement-rcp-time",
+    period: "July 2026 (PMS in 2021–2022)",
+    title: "Airborne Operational Reservist (FGIR) — 1st Parachute Chasseur Regiment",
+    institution: "French Army (1er RCP)",
+    location: "Pamiers / France",
+    type: "engagement",
+    badge: "Military Service",
+    description: [
+      "Initial military training (FGIR): physical and mental resilience, discipline, hierarchy, and tight team cohesion.",
+      "Higher Military Preparation (PMS) completed in 2021–2022: introduction to field leadership and tactical operations."
+    ],
+    skillsAcquired: ["Resilience", "Leadership", "Discipline", "Stress Management", "Team Cohesion"]
+  },
+  {
+    id: "engagement-scout-time",
+    period: "2025 – Present",
+    title: "Troop Leader — Scouting",
+    institution: "Scout Association",
+    location: "Toulouse, France",
+    type: "engagement",
+    badge: "Youth Mentorship",
+    description: [
+      "Leading and mentoring a troop of twelve young scouts (ages 12-17).",
+      "Full logistic management, equipment stewardship, and autonomous budget oversight for independent wilderness camps."
+    ],
+    skillsAcquired: ["Budgeting", "Logistics", "Active Pedagogy", "Organization", "Autonomy"]
+  },
+  {
+    id: "mini-entreprise",
+    period: "2017 – 2018",
+    title: "Chief Financial Officer — Student Mini-Enterprise",
+    institution: "Entrepreneurial Venture",
+    location: "France",
+    type: "experience",
+    badge: "Entrepreneurship",
+    description: [
+      "Managed operating budget (€500) and strict cash flow tracking for a team of 10 students.",
+      "Handled quotes, client invoicing, and final financial balance sheets."
+    ],
+    skillsAcquired: ["Accounting", "Budgeting", "Teamwork", "Rigor"]
+  }
+];
+
+
+/* =========================================================================
+   FRENCH DATASET
+========================================================================= */
+
+export const personalInfoFR = {
   name: "Antoine Chaptal",
   fullName: "Antoine Chaptal de Chanteloup",
   role: "Élève-Ingénieur Réseaux, Systèmes & Télécommunications",
@@ -101,7 +536,7 @@ export const personalInfo = {
   ]
 };
 
-export const ctiCompetencies: CTICompetency[] = [
+export const ctiCompetenciesFR: CTICompetency[] = [
   {
     code: "C1",
     title: "Concevoir & Modéliser",
@@ -184,7 +619,7 @@ export const ctiCompetencies: CTICompetency[] = [
   }
 ];
 
-export const projects: Project[] = [
+export const projectsFR: Project[] = [
   {
     id: "infra-fai",
     title: "Déploiement d'une Infrastructure Réseau & Services FAI",
@@ -283,7 +718,7 @@ export const projects: Project[] = [
     ],
     metrics: [
       { label: "Build Vite", value: "< 3s" },
-      { label: "Poids CSS", value: "7 kB gzippé" },
+      { label: "Poids CSS", value: "5 kB gzippé" },
       { label: "Hébergement", value: "antoinec2c.github.io" }
     ],
     competencies: ["C2 - Développer & Implémenter", "C4 - Piloter un projet"],
@@ -291,7 +726,7 @@ export const projects: Project[] = [
   }
 ];
 
-export const engagements: EngagementItem[] = [
+export const engagementsFR: EngagementItem[] = [
   {
     title: "Réserviste Opérationnel (FGIR) — 1er RCP",
     role: "1er Régiment de Chasseurs Parachutistes • Armée de Terre",
@@ -334,7 +769,7 @@ export const engagements: EngagementItem[] = [
   }
 ];
 
-export const skillCategories: SkillCategory[] = [
+export const skillCategoriesFR: SkillCategory[] = [
   {
     id: "reseau",
     title: "Réseaux & Systèmes",
@@ -386,7 +821,7 @@ export const skillCategories: SkillCategory[] = [
   }
 ];
 
-export const timeline: TimelineItem[] = [
+export const timelineFR: TimelineItem[] = [
   {
     id: "stage-2a-search",
     period: "À partir de juin 2027 (3 mois)",
@@ -475,3 +910,33 @@ export const timeline: TimelineItem[] = [
     skillsAcquired: ["Comptabilité", "Gestion de budget", "Travail d'équipe", "Rigueur"]
   }
 ];
+
+/* Helper hook to access the active language dataset */
+export const usePortfolioData = (): PortfolioDataset => {
+  const { language } = useLanguage();
+  return language === "fr"
+    ? {
+        personalInfo: personalInfoFR,
+        ctiCompetencies: ctiCompetenciesFR,
+        projects: projectsFR,
+        engagements: engagementsFR,
+        skillCategories: skillCategoriesFR,
+        timeline: timelineFR
+      }
+    : {
+        personalInfo: personalInfoEN,
+        ctiCompetencies: ctiCompetenciesEN,
+        projects: projectsEN,
+        engagements: engagementsEN,
+        skillCategories: skillCategoriesEN,
+        timeline: timelineEN
+      };
+};
+
+/* Default exports (English by default for backward compatibility) */
+export const personalInfo = personalInfoEN;
+export const ctiCompetencies = ctiCompetenciesEN;
+export const projects = projectsEN;
+export const engagements = engagementsEN;
+export const skillCategories = skillCategoriesEN;
+export const timeline = timelineEN;

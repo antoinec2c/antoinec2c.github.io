@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LanguageProvider } from "./context/LanguageContext";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -10,7 +11,7 @@ import { Timeline } from "./components/Timeline";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
-export function App() {
+function PortfolioContent() {
   const [activeSection, setActiveSection] = useState<string>("hero");
 
   useEffect(() => {
@@ -56,5 +57,12 @@ export function App() {
   );
 }
 
-export default App;
+export function App() {
+  return (
+    <LanguageProvider>
+      <PortfolioContent />
+    </LanguageProvider>
+  );
+}
 
+export default App;

@@ -1,8 +1,12 @@
 import type { FC } from "react";
-import { personalInfo } from "../data/portfolioData";
+import { usePortfolioData } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { ArrowUp } from "lucide-react";
 
 export const Footer: FC = () => {
+  const { personalInfo } = usePortfolioData();
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -22,29 +26,29 @@ export const Footer: FC = () => {
                 {personalInfo.name}
               </span>
               <span className="text-xs text-slate-400 font-mono">
-                Élève-Ingénieur Télécoms & Réseaux — ENSEEIHT
+                {t("footerSubtitle")}
               </span>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-medium">
-            <a href="#hero" className="hover:text-white transition-colors">Accueil</a>
-            <a href="#about" className="hover:text-white transition-colors">À propos</a>
-            <a href="#skills" className="hover:text-white transition-colors">Compétences</a>
-            <a href="#projects" className="hover:text-white transition-colors">Projets</a>
-            <a href="#cti" className="hover:text-white transition-colors">Approche CTI</a>
-            <a href="#engagement" className="hover:text-white transition-colors">Engagements</a>
-            <a href="#timeline" className="hover:text-white transition-colors">Parcours</a>
-            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+            <a href="#hero" className="hover:text-white transition-colors">{t("navHome")}</a>
+            <a href="#about" className="hover:text-white transition-colors">{t("navAbout")}</a>
+            <a href="#skills" className="hover:text-white transition-colors">{t("navSkills")}</a>
+            <a href="#projects" className="hover:text-white transition-colors">{t("navProjects")}</a>
+            <a href="#cti" className="hover:text-white transition-colors">{t("navCti")}</a>
+            <a href="#engagement" className="hover:text-white transition-colors">{t("navEngagement")}</a>
+            <a href="#timeline" className="hover:text-white transition-colors">{t("navTimeline")}</a>
+            <a href="#contact" className="hover:text-white transition-colors">{t("navContact")}</a>
           </div>
 
           <button
             type="button"
             onClick={scrollToTop}
-            aria-label="Retour en haut de page"
+            aria-label="Back to top"
             className="p-2.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white border border-slate-700 transition-colors flex items-center gap-1.5 text-xs font-medium"
           >
-            <span>Haut</span>
+            <span>{t("footerBackToTop")}</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
 
@@ -55,7 +59,7 @@ export const Footer: FC = () => {
             © {new Date().getFullYear()} {personalInfo.name} • Toulouse INP - ENSEEIHT
           </p>
           <div className="flex items-center gap-2">
-            <span>Portfolio d'Ingénieur • React & Tailwind</span>
+            <span>{t("footerCopyrightNote")}</span>
           </div>
         </div>
 

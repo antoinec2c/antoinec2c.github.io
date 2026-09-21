@@ -1,5 +1,6 @@
 import type { FC } from "react";
-import { engagements, personalInfo } from "../data/portfolioData";
+import { usePortfolioData } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { 
   HeartHandshake, 
   Award, 
@@ -9,6 +10,9 @@ import {
 } from "lucide-react";
 
 export const Engagement: FC = () => {
+  const { engagements, personalInfo } = usePortfolioData();
+  const { language, t } = useLanguage();
+
   return (
     <section id="engagement" className="py-20 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -17,13 +21,13 @@ export const Engagement: FC = () => {
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             <HeartHandshake className="w-3.5 h-3.5" />
-            <span>Engagements, Valeurs & Mobilité</span>
+            <span>{t("engagementBadge")}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Esprit d'Équipe, Rusticité & Responsabilités
+            {t("engagementTitle")}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Un profil d'ingénieur ancré dans l'action de terrain : service opérationnel militaire (1er RCP), encadrement de jeunes dans le scoutisme et gestion budgétaire.
+            {t("engagementSubtitle")}
           </p>
         </div>
 
@@ -35,10 +39,10 @@ export const Engagement: FC = () => {
             <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-sm">
                 <Play className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-                <span>Elevator Pitch Vidéo</span>
+                <span>{t("engagementPitchTitle")}</span>
               </div>
               <span className="text-xs text-slate-500 font-mono">
-                Présentation synthétique
+                {language === "en" ? "2-minute introduction" : "Présentation synthétique"}
               </span>
             </div>
 
@@ -59,7 +63,7 @@ export const Engagement: FC = () => {
             <div className="rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
                 <Award className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-                <span>Brevets & Certifications</span>
+                <span>{language === "en" ? "Certifications & Credentials" : "Brevets & Certifications"}</span>
               </div>
               <div className="space-y-2">
                 {personalInfo.certifications.map((cert) => (
@@ -68,7 +72,7 @@ export const Engagement: FC = () => {
                     className="p-2.5 rounded bg-slate-50 dark:bg-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 flex items-center justify-between"
                   >
                     <span>{cert}</span>
-                    <span className="text-slate-400 text-[10px]">Validé</span>
+                    <span className="text-slate-400 text-[10px]">{language === "en" ? "Certified" : "Validé"}</span>
                   </div>
                 ))}
               </div>
@@ -77,7 +81,7 @@ export const Engagement: FC = () => {
             <div className="rounded border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 space-y-3">
               <div className="flex items-center gap-2 text-slate-900 dark:text-white font-semibold text-xs uppercase tracking-wider">
                 <Languages className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-                <span>Langues & Mobilité</span>
+                <span>{language === "en" ? "Languages & Proficiency" : "Langues & Mobilité"}</span>
               </div>
               <div className="space-y-2">
                 {personalInfo.languages.map((lang) => (
@@ -156,16 +160,19 @@ export const Engagement: FC = () => {
             <Activity className="w-5 h-5 text-slate-700 dark:text-slate-300 shrink-0" />
             <div>
               <div className="font-semibold text-xs sm:text-sm text-slate-900 dark:text-white">
-                Centres d'intérêt & Pratiques
+                {language === "en" ? "Interests & Personal Pursuits" : "Centres d'intérêt & Pratiques"}
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400">
-                Endurance, discipline et équilibre personnel.
+                {language === "en" ? "Endurance, discipline, and healthy balance." : "Endurance, discipline et équilibre personnel."}
               </div>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-1.5 justify-center">
-            {["Trompette & Harmonica", "Course à pied", "Cyclisme sur route", "Jardinage"].map((interest) => (
+            {(language === "en" 
+              ? ["Trumpet & Harmonica", "Distance Running", "Road Cycling", "Gardening"]
+              : ["Trompette & Harmonica", "Course à pied", "Cyclisme sur route", "Jardinage"]
+            ).map((interest) => (
               <span
                 key={interest}
                 className="px-3 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700"

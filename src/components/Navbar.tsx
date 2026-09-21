@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import type { FC } from "react";
-import { personalInfo } from "../data/portfolioData";
+import { usePortfolioData } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { 
   Sun, 
   Moon, 
   Menu, 
   X, 
-  Download 
+  Download,
+  Languages
 } from "lucide-react";
 
 interface NavbarProps {
@@ -14,6 +16,9 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
+  const { personalInfo } = usePortfolioData();
+  const { language, toggleLanguage, t } = useLanguage();
+
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("theme");
@@ -47,14 +52,14 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const navLinks = [
-    { name: "Accueil", href: "#hero" },
-    { name: "À propos", href: "#about" },
-    { name: "Compétences", href: "#skills" },
-    { name: "Projets", href: "#projects" },
-    { name: "Approche CTI", href: "#cti" },
-    { name: "Engagements", href: "#engagement" },
-    { name: "Parcours", href: "#timeline" },
-    { name: "Contact", href: "#contact" },
+    { name: t("navHome"), href: "#hero" },
+    { name: t("navAbout"), href: "#about" },
+    { name: t("navSkills"), href: "#skills" },
+    { name: t("navProjects"), href: "#projects" },
+    { name: t("navCti"), href: "#cti" },
+    { name: t("navEngagement"), href: "#engagement" },
+    { name: t("navTimeline"), href: "#timeline" },
+    { name: t("navContact"), href: "#contact" },
   ];
 
   return (
@@ -80,7 +85,7 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
               {personalInfo.name}
             </span>
             <span className="text-[11px] text-slate-500 dark:text-slate-400">
-              Réseaux, Systèmes & Télécoms
+              {language === "en" ? "Networks, Systems & Telecoms" : "Réseaux, Systèmes & Télécoms"}
             </span>
           </div>
         </a>
@@ -93,7 +98,7 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                className={`px-2.5 py-1.5 rounded text-xs font-medium transition-colors ${
                   isActive
                     ? "text-slate-900 dark:text-white font-semibold bg-slate-100 dark:bg-slate-800"
                     : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850"
@@ -105,8 +110,23 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
           })}
         </nav>
 
-        {/* Actions (CV & Theme) */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        {/* Actions (Language Switcher, Theme & CV) */}
+        <div className="hidden sm:flex items-center gap-2">
+          {/* Language Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            title={language === "en" ? "Passer en Français" : "Switch to English"}
+            aria-label="Changer de langue / Switch language"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+          >
+            <Languages className="w-3.5 h-3.5 text-slate-500" />
+            <span className={language === "en" ? "text-slate-900 dark:text-white font-extrabold" : "text-slate-400 font-normal"}>EN</span>
+            <span className="text-slate-300 dark:text-slate-600">|</span>
+            <span className={language === "fr" ? "text-slate-900 dark:text-white font-extrabold" : "text-slate-400 font-normal"}>FR</span>
+          </button>
+
+          {/* Theme Toggle Button */}
           <button
             type="button"
             onClick={toggleTheme}
@@ -116,18 +136,27 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
             {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
           </button>
 
+          {/* CV Download Button */}
           <a
             href={personalInfo.cvFile}
             download
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors shadow-sm"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>Télécharger CV</span>
+            <span>{t("navDownloadCv")}</span>
           </a>
         </div>
 
         {/* Mobile controls */}
         <div className="flex sm:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="px-2 py-1 rounded border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200"
+          >
+            {language === "en" ? "FR" : "EN"}
+          </button>
+
           <button
             type="button"
             onClick={toggleTheme}
@@ -169,7 +198,7 @@ export const Navbar: FC<NavbarProps> = ({ activeSection }) => {
               className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded text-xs font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Télécharger CV (PDF)</span>
+              <span>{t("navDownloadCv")} (PDF)</span>
             </a>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { FC } from "react";
-import { projects } from "../data/portfolioData";
+import { usePortfolioData } from "../data/portfolioData";
 import type { Project } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { ProjectModal } from "./ProjectModal";
 import { GithubIcon } from "./Icons";
 import { 
@@ -10,14 +11,16 @@ import {
 } from "lucide-react";
 
 export const Projects: FC = () => {
+  const { projects } = usePortfolioData();
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
-    { id: "all", label: "Tous les projets" },
-    { id: "reseau", label: "Infrastructures Réseaux (Quagga)" },
-    { id: "systeme", label: "Systèmes Unix & C" },
-    { id: "tipe", label: "Recherche & TIPE (CFD)" },
+    { id: "all", label: t("projectsFilterAll") },
+    { id: "reseau", label: t("projectsFilterReseau") },
+    { id: "systeme", label: t("projectsFilterSysteme") },
+    { id: "tipe", label: t("projectsFilterTipe") },
   ];
 
   const filteredProjects = activeCategory === "all"
@@ -32,13 +35,13 @@ export const Projects: FC = () => {
         <div className="max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             <Layers className="w-3.5 h-3.5" />
-            <span>Projets & Réalisations</span>
+            <span>{t("projectsBadge")}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Travaux d'Ingénierie & Développements
+            {t("projectsTitle")}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Infrastructures réseaux déployées sous Quagga/Linux, développement d'un mini-shell Unix en C et recherche expérimentale en propulsion navale.
+            {t("projectsSubtitle")}
           </p>
         </div>
 
@@ -118,7 +121,7 @@ export const Projects: FC = () => {
                   onClick={() => setSelectedProject(project)}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 dark:text-white hover:underline"
                 >
-                  <span>Fiche détaillée du projet</span>
+                  <span>{t("projectsViewDetails")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
 
@@ -127,7 +130,7 @@ export const Projects: FC = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Dépôt GitHub de ${project.title}`}
+                    aria-label={`GitHub repo for ${project.title}`}
                     className="p-1 rounded text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" />

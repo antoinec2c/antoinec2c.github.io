@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import type { FC, MouseEvent } from "react";
 import type { Project } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { GithubIcon } from "./Icons";
 import { 
   X, 
@@ -16,6 +17,7 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { language, t } = useLanguage();
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   useEffect(() => {
@@ -78,7 +80,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Fermer"
+            aria-label={t("modalClose")}
             className="p-1.5 rounded border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -90,7 +92,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="p-4 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850 space-y-1.5">
             <div className="font-semibold text-xs text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5" />
-              <span>Problématique Ingénieur</span>
+              <span>{t("modalProblem")}</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               {project.problematique}
@@ -100,7 +102,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="p-4 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850 space-y-1.5">
             <div className="font-semibold text-xs text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5" />
-              <span>Solution & Approche</span>
+              <span>{t("modalSolution")}</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               {project.solution}
@@ -111,7 +113,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         {/* Detailed Description */}
         <div className="space-y-2">
           <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
-            Description détaillée
+            {language === "en" ? "Detailed Overview" : "Description détaillée"}
           </h4>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             {project.description}
@@ -121,7 +123,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         {/* Highlights */}
         <div className="space-y-2">
           <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
-            Points clés & Réalisations
+            {t("modalHighlights")}
           </h4>
           <ul className="space-y-1.5">
             {project.highlights.map((item, idx) => (
@@ -133,11 +135,11 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           </ul>
         </div>
 
-        {/* Indicators */}
+        {/* Indicators / Metrics */}
         {project.metrics && project.metrics.length > 0 && (
           <div className="p-3.5 rounded border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-850">
             <h4 className="font-semibold text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
-              Indicateurs & Métriques
+              {t("modalMetrics")}
             </h4>
             <div className="grid grid-cols-3 gap-2">
               {project.metrics.map((metric, i) => (
@@ -153,7 +155,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         {/* Competencies Validated */}
         <div className="space-y-1.5">
           <h4 className="font-semibold text-[11px] text-slate-500 uppercase tracking-wider">
-            Compétences CTI mobilisées
+            {t("modalCompetencies")}
           </h4>
           <div className="flex flex-wrap gap-1.5">
             {project.competencies.map((comp, idx) => (
@@ -171,7 +173,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         {/* Technologies tags */}
         <div className="space-y-1.5">
           <h4 className="font-semibold text-[11px] text-slate-500 uppercase tracking-wider">
-            Technologies & Outils
+            {language === "en" ? "Technologies & Environment" : "Technologies & Outils"}
           </h4>
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
@@ -209,7 +211,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               onClick={onClose}
               className="px-4 py-1.5 rounded text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 transition-colors"
             >
-              Fermer
+              {t("modalClose")}
             </button>
           </div>
         </div>

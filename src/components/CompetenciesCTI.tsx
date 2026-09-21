@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FC } from "react";
-import { ctiCompetencies } from "../data/portfolioData";
+import { usePortfolioData } from "../data/portfolioData";
+import { useLanguage } from "../context/LanguageContext";
 import { 
   Award, 
   CheckCircle2, 
@@ -9,6 +10,8 @@ import {
 } from "lucide-react";
 
 export const CompetenciesCTI: FC = () => {
+  const { ctiCompetencies } = usePortfolioData();
+  const { language, t } = useLanguage();
   const [selectedCompCode, setSelectedCompCode] = useState<string>("C1");
 
   const activeComp = ctiCompetencies.find((c) => c.code === selectedCompCode) || ctiCompetencies[0];
@@ -21,13 +24,13 @@ export const CompetenciesCTI: FC = () => {
         <div className="max-w-3xl mb-12">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             <Award className="w-3.5 h-3.5" />
-            <span>Référentiel CTI & Approche Par Compétences</span>
+            <span>{t("ctiBadge")}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Validation des Compétences du Diplôme d'Ingénieur
+            {t("ctiTitle")}
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Matrice réflexive démontrant la maîtrise des 5 macro-compétences du titre d'ingénieur ENSEEIHT / CTI.
+            {t("ctiSubtitle")}
           </p>
         </div>
 
@@ -90,14 +93,14 @@ export const CompetenciesCTI: FC = () => {
                   </h3>
                 </div>
                 <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
-                  Validée 2A
+                  {language === "en" ? "Validated Year 2" : "Validée 2A"}
                 </span>
               </div>
 
               {/* Requirements Description */}
               <div className="space-y-1.5">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
-                  Détail & Exigences CTI
+                  {language === "en" ? "CTI Framework Scope & Details" : "Détail & Exigences CTI"}
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {activeComp.details}
@@ -107,7 +110,7 @@ export const CompetenciesCTI: FC = () => {
               {/* Learning Outcomes */}
               <div className="space-y-2">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono">
-                  Acquis d'Apprentissage Clés
+                  {t("ctiLearningOutcomes")}
                 </div>
                 <ul className="space-y-1.5">
                   {activeComp.learningOutcomes.map((outcome, i) => (
@@ -123,7 +126,7 @@ export const CompetenciesCTI: FC = () => {
               <div className="space-y-2 pt-3 border-t border-slate-100 dark:border-slate-800">
                 <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 font-mono flex items-center gap-1.5">
                   <FolderGit2 className="w-3.5 h-3.5" />
-                  <span>Projets de référence associés</span>
+                  <span>{t("ctiAssociatedProjects")}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {activeComp.projectsLinked.map((proj) => (
